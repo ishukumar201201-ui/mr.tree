@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Ideals - Protect & Develop</title>
+    <style>
+        /* CSS: Styling aur Professional Look ke liye */
+        :root {
+            --primary-green: #2E7D32;
+            --light-green: #A5D6A7;
+            --dark-green: #1B5E20;
+            --text-dark: #333;
+            --bg-light: #f4f9f4;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar & Logo */
+        header {
+            background-color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-nk {
+            background: linear-gradient(45deg, var(--primary-green), var(--dark-green));
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-green);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        /* Section Container */
+        .section-container {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2.section-title {
+            text-align: center;
+            color: var(--dark-green);
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        /* Forest Cards Grid */
+        .forest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .forest-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .forest-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .forest-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .forest-info {
+            padding: 20px;
+        }
+
+        .forest-info h3 {
+            color: var(--primary-green);
+            margin-top: 0;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background-color: var(--light-green);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .quiz-container {
+            background: white;
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .quiz-btn {
+            padding: 15px;
+            border: 2px solid var(--primary-green);
+            background: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .quiz-btn:hover {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        .correct { background-color: #4CAF50 !important; color: white; border-color: #4CAF50;}
+        .wrong { background-color: #F44336 !important; color: white; border-color: #F44336;}
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-green);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo-nk">NK</div>
+            <div class="logo-text">Nature Ideals</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#forests">World Forests</a></li>
+                <li><a href="#protection">Protection</a></li>
+                <li><a href="#quiz">Global Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Welcome to Nature Ideals</h1>
+        <p>Ek aisi jagah jahan hum nature ko samajhte hain, uski protection karte hain aur ek behtar kal ka development karte hain. Humara maqsad hai puri duniya mein paryavaran ka gyan badhana.</p>
+    </section>
+
+    <section class="section-container" id="forests">
+        <h2 class="section-title">Forests of the World</h2>
+        <div class="forest-grid">
+            
+            <div class="forest-card">
+                <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Amazon Forest">
+                <div class="forest-info">
+                    <h3>Amazon Rainforest (South America)</h3>
+                    <p><strong>Trees:</strong> Rubber tree, Brazil nut tree, Mahogany.</p>
+                    <p><strong>Animals:</strong> Jaguar, Macaw, Poison Dart Frog, Sloth.</p>
+                    <p><strong>Rivers/Water:</strong> Amazon River.</p>
+                    <p>Duniya ke "Lungs" kahe jane wale is jungle mein sabse zyada biodiversity hai.</p>
+                </div>
+            </div>
+
+            <div class="forest-card">
+                <img src="https://images.unsplash.com/photo-1511497584788-876760111969?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Congo Forest">
+                <div class="forest-info">
+                    <h3>Congo Basin (Africa)</h3>
+                    <p><strong>Trees:</strong> Teak, Ebony, Moabi.</p>
+                    <p><strong>Animals:</strong> Gorillas, Chimpanzees, Forest Elephants.</p>
+                    <p><strong>Rivers/Water:</strong> Congo River.</p>
+                    <p>Duniya ka dusra sabse bada tropical rainforest jo carbon absorb karne mein mahatvapurna hai.</p>
+                </div>
+            </div>
+
+            <div class="forest-card">
+                <img src="https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Taiga Forest">
+                <div class="forest-info">
+                    <h3>Taiga Forest (North America & Eurasia)</h3>
+                    <p><strong>Trees:</strong> Pine, Spruce, Larch (Coniferous trees).</p>
+                    <p><strong>Animals:</strong> Bears, Wolves, Moose, Siberian Tiger.</p>
+                    <p><strong>Rivers/Water:</strong> Numerous freshwater lakes and bogs.</p>
+                    <p>Duniya ka sabse bada land biome jo barfili jagahon par fela hua hai.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-container" id="protection">
+        <h2 class="section-title">Protection & Sustainable Development</h2>
+        <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <h3>Nature ko Kaise Bachayein?</h3>
+            <ul style="font-size: 18px; line-height: 1.8;">
+                <li><strong>Afforestation:</strong> Zaroorat se zyada ped lagayein aur kate hue jungalo ko wapas ugayein.</li>
+                <li><strong>Reduce Carbon Footprint:</strong> Fossil fuels ka kam istemal karein, Solar/Wind energy ko badhava dein.</li>
+                <li><strong>Wildlife Conservation:</strong> Janwaro ke shikar par rok aur unke natural habitat ko protect karna.</li>
+                <li><strong>Plastic Ban:</strong> Oceans aur rivers ko bachane ke liye single-use plastic ka completely boycott.</li>
+                <li><strong>Sustainable Development:</strong> Tarraki aise karein jisse nature ko nuksan na ho. Green buildings aur eco-friendly technology ka use karein.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="quiz-section" id="quiz">
+        <h2 class="section-title" style="color: var(--dark-green);">🌍 Global Environment Quiz 🌍</h2>
+        <p>Aapka knowledge check karein! Jaise hi aap answer denge, naya question automatic aa jayega.</p>
+        
+        <div class="quiz-container">
+            <h3 id="question-text">Loading question...</h3>
+            <div class="quiz-options" id="options-container">
+                </div>
+            <p id="quiz-feedback" style="margin-top: 20px; font-weight: bold; font-size: 18px;"></p>
+        </div>
+    </section>
+
+    <footer>
+        <h2>NK - Nature Ideals</h2>
+        <p>Paryavaran ko bachana humari zimmedari hai. Not for profit, only for knowledge.</p>
+        <p>© 2026 Nature Ideals. Created for global awareness.</p>
+    </footer>
+
+    <script>
+        // Quiz Data - Aap isme aur bhi hazaro questions add kar sakte hain
+        const quizData = [
+            {
+                question: "Duniya ka sabse bada Rainforest kaunsa hai?",
+                options: ["Congo Rainforest", "Amazon Rainforest", "Daintree Forest", "Taiga Forest"],
+                answer: "Amazon Rainforest"
+            },
+            {
+                question: "Global Warming ka sabse bada karan kaunsi gas hai?",
+                options: ["Oxygen", "Carbon Dioxide (CO2)", "Nitrogen", "Hydrogen"],
+                answer: "Carbon Dioxide (CO2)"
+            },
+            {
+                question: "Duniya ka kitna pratishat (percentage) hissa pani (Oceans) se dhaka hai?",
+                options: ["50%", "71%", "90%", "30%"],
+                answer: "71%"
+            },
+            {
+                question: "Ozone Layer humein kis cheez se bachati hai?",
+                options: ["Baarish se", "Thand se", "Suraj ki UV Rays se", "Hawa se"],
+                answer: "Suraj ki UV Rays se"
+            },
+            {
+                question: "Inmein se kaunsa ek Renewable Energy source hai?",
+                options: ["Koyla (Coal)", "Solar Energy", "Petrol", "Natural Gas"],
+                answer: "Solar Energy"
+            },
+            {
+                question: "Vishwa Paryavaran Diwas (World Environment Day) kab manaya jata hai?",
+                options: ["5 June", "15 August", "22 April", "10 December"],
+                answer: "5 June"
+            }
+        ];
+
+        let currentQuestion = {};
+
+        function loadRandomQuestion() {
+            // Get a random question
+            const randomIndex = Math.floor(Math.random() * quizData.length);
+            currentQuestion = quizData[randomIndex];
+
+            // Update UI
+            document.getElementById('question-text').innerText = currentQuestion.question;
+            document.getElementById('quiz-feedback').innerText = "";
+            
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = ""; // Clear old options
+
+            // Create buttons for options
+            currentQuestion.options.forEach(option => {
+                const button = document.createElement('button');
+                button.innerText = option;
+                button.classList.add('quiz-btn');
+                button.onclick = () => checkAnswer(button, option);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function checkAnswer(button, selectedOption) {
+            // Disable all buttons so user can't click multiple times
+            const allButtons = document.querySelectorAll('.quiz-btn');
+            allButtons.forEach(btn => btn.disabled = true);
+
+            const feedback = document.getElementById('quiz-feedback');
+
+            if (selectedOption === currentQuestion.answer) {
+                button.classList.add('correct');
+                feedback.innerText = "Bilkul Sahi Jawab! 🎉 Naya question aa raha hai...";
+                feedback.style.color = "#4CAF50";
+            } else {
+                button.classList.add('wrong');
+                feedback.innerText = `Galat Jawab! Sahi answer tha: ${currentQuestion.answer}. Naya question aa raha hai...`;
+                feedback.style.color = "#F44336";
+                // Highlight the correct answer
+                allButtons.forEach(btn => {
+                    if(btn.innerText === currentQuestion.answer) {
+                        btn.classList.add('correct');
+                    }
+                });
+            }
+
+            // Wait 2 seconds and load next question automatically
+            setTimeout(() => {
+                loadRandomQuestion();
+            }, 2500);
+        }
+
+        // Load the first question when page starts
+        loadRandomQuestion();
+    </script>
+
+</body>
+</html>
