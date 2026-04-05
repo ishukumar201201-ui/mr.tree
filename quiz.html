@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Quiz | Nature Ideals</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #e8f5e9; color: #333; text-align: center;}
+        header { background: #1B5E20; color: white; padding: 20px 50px; display: flex; align-items: center; justify-content: space-between; text-align: left; }
+        .logo-nk { background: #fff; color: #1B5E20; font-size: 20px; font-weight: bold; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
+        
+        .quiz-box { background: white; max-width: 600px; margin: 50px auto; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .option-btn { display: block; width: 100%; padding: 15px; margin: 10px 0; background: #f1f8e9; border: 2px solid #a5d6a7; border-radius: 8px; cursor: pointer; font-size: 16px; transition: 0.3s; }
+        .option-btn:hover { background: #dcedc8; }
+        .correct { background-color: #4CAF50 !important; color: white; }
+        .wrong { background-color: #F44336 !important; color: white; }
+        #feedback { font-weight: bold; margin-top: 20px; font-size: 18px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <div class="logo-nk">NK</div>
+            <span style="font-size: 24px;">Nature Ideals</span>
+        </div>
+        <nav><a href="index.html">Home</a></nav>
+    </header>
+
+    <div class="quiz-box">
+        <h1 style="color: #2E7D32;">Global Environment Quiz</h1>
+        <p>Test your knowledge. Questions loop endlessly.</p>
+        <hr style="border: 1px solid #eee; margin: 20px 0;">
+        
+        <h3 id="question-text">Loading...</h3>
+        <div id="options-container"></div>
+        <p id="feedback"></p>
+    </div>
+
+    <script>
+        const quizData = [
+            { q: "What is the largest rainforest in the world?", o: ["Congo", "Amazon", "Daintree"], a: "Amazon" },
+            { q: "Which gas is most responsible for global warming?", o: ["Oxygen", "Carbon Dioxide", "Nitrogen"], a: "Carbon Dioxide" },
+            { q: "What percentage of Earth is covered by oceans?", o: ["50%", "71%", "90%"], a: "71%" },
+            { q: "Renewable energy comes from...", o: ["Coal", "Sun & Wind", "Natural Gas"], a: "Sun & Wind" }
+        ];
+
+        let currentQ;
+
+        function loadQ() {
+            const r = Math.floor(Math.random() * quizData.length);
+            currentQ = quizData[r];
+            document.getElementById('question-text').innerText = currentQ.q;
+            document.getElementById('feedback').innerText = "";
+            const container = document.getElementById('options-container');
+            container.innerHTML = "";
+            currentQ.o.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.innerText = opt;
+                btn.classList.add('option-btn');
+                btn.onclick = () => checkA(btn, opt);
+                container.appendChild(btn);
+            });
+        }
+
+        function checkA(btn, selected) {
+            const btns = document.querySelectorAll('.option-btn');
+            btns.forEach(b => b.disabled = true);
+            const f = document.getElementById('feedback');
+            if(selected === currentQ.a) {
+                btn.classList.add('correct');
+                f.innerText = "Correct! Loading next..."; f.style.color = "green";
+            } else {
+                btn.classList.add('wrong');
+                f.innerText = `Wrong. Correct was: ${currentQ.a}`; f.style.color = "red";
+                btns.forEach(b => { if(b.innerText === currentQ.a) b.classList.add('correct'); });
+            }
+            setTimeout(loadQ, 2000);
+        }
+        loadQ();
+    </script>
+</body>
+</html>
