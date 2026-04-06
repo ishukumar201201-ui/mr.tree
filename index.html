@@ -3,141 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nature Ideals | The Green Knowledge Portal</title>
+    <title>Nature Ideals | Restoring the Earth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS resets */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body, html { height: 100%; font-family: 'Georgia', serif; overflow: hidden; color: white; }
-
-        /* Background Video Styling */
-        #bg-video {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            z-index: -1;
-            object-fit: cover;
-            filter: brightness(60%);
+        /* Premium CSS Setup */
+        :root {
+            --primary-green: #7E903A; /* Olive green like WeForest */
+            --dark-bg: #2C3539;
+            --beige-bg: #F4F1EA;
+            --text-dark: #222;
+            --text-light: #fff;
         }
 
-        /* Overlay */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--beige-bg); color: var(--text-dark); }
+        a { text-decoration: none; }
 
-        /* NK Logo */
-        .logo-nk {
-            background: linear-gradient(135deg, #2E7D32, #1B5E20);
-            color: white;
-            font-size: 30px;
-            font-weight: bold;
-            width: 70px;
-            height: 70px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            border: 3px solid #A5D6A7;
-            margin-bottom: 20px;
-            box-shadow: 0 0 20px rgba(165, 214, 167, 0.5);
+        /* Navbar */
+        header {
+            position: absolute; width: 100%; top: 0; padding: 20px 5%;
+            display: flex; justify-content: space-between; align-items: center; z-index: 100;
         }
+        .logo { font-size: 24px; font-weight: 700; color: white; display: flex; align-items: center; gap: 10px; }
+        .logo-icon { width: 40px; height: 40px; background: white; color: var(--primary-green); border-radius: 50%; display: flex; justify-content: center; align-items: center; }
+        
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .search-bar { background: transparent; border: 1px solid white; color: white; padding: 8px 15px; border-radius: 20px; outline: none; }
+        .search-bar::placeholder { color: #ddd; }
+        .menu-btn { color: white; font-size: 24px; cursor: pointer; }
 
-        h1 {
-            font-size: 60px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
-            animation: fadeInDown 1.5s ease;
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=2000') center/cover;
+            display: flex; flex-direction: column; justify-content: center; padding: 0 10%; color: white;
         }
+        .hero h1 { font-size: 60px; max-width: 800px; margin-bottom: 20px; line-height: 1.1; }
+        .hero p { font-size: 18px; max-width: 600px; margin-bottom: 30px; line-height: 1.5; font-weight: 300; }
+        
+        .hero-btns { display: flex; gap: 15px; }
+        .btn-solid { background: var(--primary-green); color: white; padding: 15px 30px; border-radius: 30px; font-weight: 600; transition: 0.3s; border: 2px solid var(--primary-green); }
+        .btn-solid:hover { background: transparent; border: 2px solid white; }
+        .btn-outline { background: white; color: var(--text-dark); padding: 15px 30px; border-radius: 30px; font-weight: 600; transition: 0.3s; }
+        .btn-outline:hover { background: #eee; }
 
-        p {
-            font-size: 22px;
-            max-width: 800px;
-            margin-bottom: 40px;
-            font-weight: 300;
-            animation: fadeInUp 1.5s ease;
-        }
+        /* Stats Section */
+        .stats-section { padding: 80px 10%; background: white; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .stat-card { text-align: center; background: white; border: 1px solid #eee; padding-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .stat-card img { width: 100%; height: 200px; object-fit: cover; margin-bottom: 20px; }
+        .stat-card h3 { font-size: 32px; color: var(--dark-bg); margin-bottom: 5px; }
+        .stat-card p { color: #666; font-size: 14px; }
 
-        /* Professional Navigation Buttons */
-        .nav-container {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+        /* Info Section (Why FLR style) */
+        .info-section { padding: 80px 10%; background: var(--beige-bg); }
+        .info-section h2 { font-size: 40px; margin-bottom: 20px; color: var(--dark-bg); }
+        .info-desc { font-size: 18px; color: #555; max-width: 800px; margin-bottom: 40px; }
+        
+        .highlight-box { background: #E8E5DB; padding: 30px; border-left: 4px solid var(--primary-green); margin-bottom: 50px; }
 
-        .main-btn {
-            padding: 15px 35px;
-            font-size: 18px;
-            background: transparent;
-            color: white;
-            border: 2px solid #A5D6A7;
-            cursor: pointer;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: bold;
-            transition: all 0.4s ease;
-            border-radius: 5px;
-        }
+        .image-cards { display: flex; flex-direction: column; gap: 20px; }
+        .img-card { position: relative; height: 250px; overflow: hidden; }
+        .img-card img { width: 100%; height: 100%; object-fit: cover; }
+        .img-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; }
+        .img-overlay h4 { font-size: 20px; margin-bottom: 5px; color: #A5D6A7; }
 
-        .main-btn:hover {
-            background-color: #A5D6A7;
-            color: #1B5E20;
-            box-shadow: 0 0 15px rgba(165, 214, 167, 0.7);
-        }
-
-        .kids-btn {
-            background-color: #FFD54F; /* Bright yellow for kids */
-            color: #333;
-            border: 2px solid #FFD54F;
-        }
-
-        .kids-btn:hover {
-            background-color: white;
-            color: #FF8F00;
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        /* Footer */
+        footer { background: var(--dark-bg); color: white; padding: 60px 10%; }
+        .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px;}
+        .footer-grid h4 { margin-bottom: 20px; color: var(--primary-green); }
+        .footer-grid ul { list-style: none; }
+        .footer-grid ul li { margin-bottom: 10px; }
+        .footer-grid ul li a { color: #ccc; transition: 0.3s; }
+        .footer-grid ul li a:hover { color: white; }
+        .search-footer { padding: 10px; width: 100%; border: none; border-radius: 5px; margin-top: 10px;}
     </style>
 </head>
 <body>
 
-    <video autoplay muted loop id="bg-video">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-sunlight-through-the-trees-of-a-forest-431-large.mp4" type="video/mp4">
-    </video>
-
-    <div class="overlay">
-        <div class="logo-nk">NK</div>
-
-        <h1>NATURE IDEALS</h1>
-        <p>A Global Sanctuary of Knowledge. Explore the world's most magnificent forests, learn how to protect our planet, and enter a dedicated space for the conservationists of tomorrow.</p>
-
-        <div class="nav-container">
-            <a href="forests.html" class="main-btn">The Great Forests</a>
-            <a href="protection.html" class="main-btn">Protection & Future</a>
-            <a href="quiz.html" class="main-btn">Global Quiz</a>
-            <a href="kids.html" class="main-btn kids-btn">🌿 Kids Space 🧸</a>
+    <header>
+        <div class="logo">
+            <div class="logo-icon">NK</div>
+            Nature Ideals
         </div>
-    </div>
+        <div class="nav-right">
+            <input type="text" class="search-bar" placeholder="Search forests, projects...">
+            <div class="menu-btn">☰</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Restoring forests for People, Nature and Climate</h1>
+        <p>Through transformative forest restoration projects, we fight climate change, boost biodiversity, and uplift local communities around the world.</p>
+        <div class="hero-btns">
+            <a href="#projects" class="btn-solid">What we do</a>
+            <a href="donate.html" class="btn-outline">Partner with us (Donate)</a>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <img src="https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?w=500" alt="Planting">
+                <h3>110 million</h3>
+                <p>trees growing</p>
+            </div>
+            <div class="stat-card">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500" alt="Regenerating">
+                <h3>83,100</h3>
+                <p>hectares regenerating</p>
+            </div>
+            <div class="stat-card">
+                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=500" alt="Species">
+                <h3>987</h3>
+                <p>species growing</p>
+            </div>
+            <div class="stat-card">
+                <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=500" alt="Families">
+                <h3>104,000</h3>
+                <p>families benefiting</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <h2>Why Forest and Landscape Restoration?</h2>
+        <p class="info-desc">Forests are one of the most effective solutions to address the effects of climate change. They are also a powerful force to lift people out of poverty and conserve biodiversity.</p>
+        
+        <div class="highlight-box">
+            Rather than just planting more trees, we work to restore landscapes and protect them from deforestation over the long term.
+        </div>
+
+        <div class="image-cards">
+            <div class="img-card">
+                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200" alt="People">
+                <div class="img-overlay">
+                    <h4>PEOPLE</h4>
+                    <p>As well as supplying clean water and air, forests are a source of livelihoods.</p>
+                </div>
+            </div>
+            <div class="img-card">
+                <img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=1200" alt="Nature">
+                <div class="img-overlay">
+                    <h4>NATURE</h4>
+                    <p>Forests are home to 80% of our terrestrial biodiversity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="logo" style="margin-bottom: 20px;">
+                    <div class="logo-icon">NK</div> Nature Ideals
+                </div>
+                <p style="color: #aaa; font-size: 14px;">HQ: Agra, Uttar Pradesh, India<br>Committed to making Earth cooler.</p>
+            </div>
+            <div>
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Projects</a></li>
+                    <li><a href="donate.html">Make a Donation</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Stay Updated</h4>
+                <p style="color: #aaa; font-size: 14px;">Subscribe to our newsletter</p>
+                <input type="email" class="search-footer" placeholder="Your email address">
+                <button style="width: 100%; padding: 10px; margin-top: 10px; background: var(--primary-green); color: white; border: none; cursor: pointer;">Subscribe</button>
+            </div>
+        </div>
+        <hr style="border-color: #444; margin: 20px 0;">
+        <p style="text-align: center; color: #888; font-size: 12px;">© 2026 Nature Ideals. UI Design for Educational & NGO Purposes.</p>
+    </footer>
 
 </body>
 </html>
