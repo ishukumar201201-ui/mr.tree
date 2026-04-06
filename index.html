@@ -3,181 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nature Ideals | Restoring the Earth</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Premium CSS Setup */
-        :root {
-            --primary-green: #7E903A; /* Olive green like WeForest */
-            --dark-bg: #2C3539;
-            --beige-bg: #F4F1EA;
-            --text-dark: #222;
-            --text-light: #fff;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--beige-bg); color: var(--text-dark); }
-        a { text-decoration: none; }
-
-        /* Navbar */
-        header {
-            position: absolute; width: 100%; top: 0; padding: 20px 5%;
-            display: flex; justify-content: space-between; align-items: center; z-index: 100;
-        }
-        .logo { font-size: 24px; font-weight: 700; color: white; display: flex; align-items: center; gap: 10px; }
-        .logo-icon { width: 40px; height: 40px; background: white; color: var(--primary-green); border-radius: 50%; display: flex; justify-content: center; align-items: center; }
-        
-        .nav-right { display: flex; align-items: center; gap: 20px; }
-        .search-bar { background: transparent; border: 1px solid white; color: white; padding: 8px 15px; border-radius: 20px; outline: none; }
-        .search-bar::placeholder { color: #ddd; }
-        .menu-btn { color: white; font-size: 24px; cursor: pointer; }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=2000') center/cover;
-            display: flex; flex-direction: column; justify-content: center; padding: 0 10%; color: white;
-        }
-        .hero h1 { font-size: 60px; max-width: 800px; margin-bottom: 20px; line-height: 1.1; }
-        .hero p { font-size: 18px; max-width: 600px; margin-bottom: 30px; line-height: 1.5; font-weight: 300; }
-        
-        .hero-btns { display: flex; gap: 15px; }
-        .btn-solid { background: var(--primary-green); color: white; padding: 15px 30px; border-radius: 30px; font-weight: 600; transition: 0.3s; border: 2px solid var(--primary-green); }
-        .btn-solid:hover { background: transparent; border: 2px solid white; }
-        .btn-outline { background: white; color: var(--text-dark); padding: 15px 30px; border-radius: 30px; font-weight: 600; transition: 0.3s; }
-        .btn-outline:hover { background: #eee; }
-
-        /* Stats Section */
-        .stats-section { padding: 80px 10%; background: white; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .stat-card { text-align: center; background: white; border: 1px solid #eee; padding-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .stat-card img { width: 100%; height: 200px; object-fit: cover; margin-bottom: 20px; }
-        .stat-card h3 { font-size: 32px; color: var(--dark-bg); margin-bottom: 5px; }
-        .stat-card p { color: #666; font-size: 14px; }
-
-        /* Info Section (Why FLR style) */
-        .info-section { padding: 80px 10%; background: var(--beige-bg); }
-        .info-section h2 { font-size: 40px; margin-bottom: 20px; color: var(--dark-bg); }
-        .info-desc { font-size: 18px; color: #555; max-width: 800px; margin-bottom: 40px; }
-        
-        .highlight-box { background: #E8E5DB; padding: 30px; border-left: 4px solid var(--primary-green); margin-bottom: 50px; }
-
-        .image-cards { display: flex; flex-direction: column; gap: 20px; }
-        .img-card { position: relative; height: 250px; overflow: hidden; }
-        .img-card img { width: 100%; height: 100%; object-fit: cover; }
-        .img-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; }
-        .img-overlay h4 { font-size: 20px; margin-bottom: 5px; color: #A5D6A7; }
-
-        /* Footer */
-        footer { background: var(--dark-bg); color: white; padding: 60px 10%; }
-        .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px;}
-        .footer-grid h4 { margin-bottom: 20px; color: var(--primary-green); }
-        .footer-grid ul { list-style: none; }
-        .footer-grid ul li { margin-bottom: 10px; }
-        .footer-grid ul li a { color: #ccc; transition: 0.3s; }
-        .footer-grid ul li a:hover { color: white; }
-        .search-footer { padding: 10px; width: 100%; border: none; border-radius: 5px; margin-top: 10px;}
-    </style>
+    <title>Earth & Wildlife Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
 
     <header>
-        <div class="logo">
-            <div class="logo-icon">NK</div>
-            Nature Ideals
+        <div class="logo">🌍 EarthExplorer</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search countries, animals, forests...">
+            <button>Search</button>
         </div>
-        <div class="nav-right">
-            <input type="text" class="search-bar" placeholder="Search forests, projects...">
-            <div class="menu-btn">☰</div>
-        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="countries.html">Countries</a></li>
+                <li><a href="animals.html">Animals</a></li>
+                <li><a href="forests.html">Forests</a></li>
+            </ul>
+        </nav>
+        <a href="donate.html" class="donate-btn">Donate ❤️</a>
     </header>
 
     <section class="hero">
-        <h1>Restoring forests for People, Nature and Climate</h1>
-        <p>Through transformative forest restoration projects, we fight climate change, boost biodiversity, and uplift local communities around the world.</p>
-        <div class="hero-btns">
-            <a href="#projects" class="btn-solid">What we do</a>
-            <a href="donate.html" class="btn-outline">Partner with us (Donate)</a>
+        <div class="hero-text">
+            <h1>Discover the World's Forests & Wildlife</h1>
+            <p>Explore thousands of animals, dense rainforests, and all countries on our 3D interactive planet.</p>
+            <a href="#explore" class="cta-btn">Start Exploring</a>
         </div>
+        <div id="canvas-container"></div>
     </section>
 
-    <section class="stats-section">
-        <div class="stats-grid">
-            <div class="stat-card">
-                <img src="https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?w=500" alt="Planting">
-                <h3>110 million</h3>
-                <p>trees growing</p>
+    <section id="explore" class="categories">
+        <h2>Explore Our Database</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=500" alt="Lion">
+                <h3>Terrestrial & Aquatic Animals</h3>
+                <p>From Tigers (बाघ) and Leopards (तेंदुआ) to Sharks (शार्क) and Dolphins (डॉल्फ़िन). Full details with photos.</p>
+                <a href="animals.html" class="card-btn">View All Animals</a>
             </div>
-            <div class="stat-card">
-                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500" alt="Regenerating">
-                <h3>83,100</h3>
-                <p>hectares regenerating</p>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1511497584788-876760111969?w=500" alt="Forest">
+                <h3>World Forests Database</h3>
+                <p>Amazon, Congo, Taiga, and Sundarbans. Discover their locations and native wildlife.</p>
+                <a href="forests.html" class="card-btn">Explore Forests</a>
             </div>
-            <div class="stat-card">
-                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=500" alt="Species">
-                <h3>987</h3>
-                <p>species growing</p>
-            </div>
-            <div class="stat-card">
-                <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=500" alt="Families">
-                <h3>104,000</h3>
-                <p>families benefiting</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="info-section">
-        <h2>Why Forest and Landscape Restoration?</h2>
-        <p class="info-desc">Forests are one of the most effective solutions to address the effects of climate change. They are also a powerful force to lift people out of poverty and conserve biodiversity.</p>
-        
-        <div class="highlight-box">
-            Rather than just planting more trees, we work to restore landscapes and protect them from deforestation over the long term.
-        </div>
-
-        <div class="image-cards">
-            <div class="img-card">
-                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200" alt="People">
-                <div class="img-overlay">
-                    <h4>PEOPLE</h4>
-                    <p>As well as supplying clean water and air, forests are a source of livelihoods.</p>
-                </div>
-            </div>
-            <div class="img-card">
-                <img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=1200" alt="Nature">
-                <div class="img-overlay">
-                    <h4>NATURE</h4>
-                    <p>Forests are home to 80% of our terrestrial biodiversity.</p>
-                </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=500" alt="Map">
+                <h3>Countries of the World</h3>
+                <p>Complete details, databases, and general knowledge of all countries.</p>
+                <a href="countries.html" class="card-btn">View Countries</a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <div class="logo" style="margin-bottom: 20px;">
-                    <div class="logo-icon">NK</div> Nature Ideals
-                </div>
-                <p style="color: #aaa; font-size: 14px;">HQ: Agra, Uttar Pradesh, India<br>Committed to making Earth cooler.</p>
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="contact-form">
+                <h3>Contact Us / Feedback</h3>
+                <form action="#" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="4" placeholder="Ask a question or share feedback..." required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
             </div>
-            <div>
-                <h4>Explore</h4>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Our Projects</a></li>
-                    <li><a href="donate.html">Make a Donation</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Stay Updated</h4>
-                <p style="color: #aaa; font-size: 14px;">Subscribe to our newsletter</p>
-                <input type="email" class="search-footer" placeholder="Your email address">
-                <button style="width: 100%; padding: 10px; margin-top: 10px; background: var(--primary-green); color: white; border: none; cursor: pointer;">Subscribe</button>
+            <div class="footer-info">
+                <h3>EarthExplorer Admin</h3>
+                <p>Humari website par aapka swagat hai. Agar aapka koi sawaal hai, toh form bharein, hum email ke zariye aapko reply karenge.</p>
+                <p>&copy; 2026 EarthExplorer. All rights reserved.</p>
             </div>
         </div>
-        <hr style="border-color: #444; margin: 20px 0;">
-        <p style="text-align: center; color: #888; font-size: 12px;">© 2026 Nature Ideals. UI Design for Educational & NGO Purposes.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
