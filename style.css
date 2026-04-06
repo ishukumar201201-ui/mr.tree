@@ -56,6 +56,12 @@ footer { background: #081c15; color: white; padding: 40px 50px; }
 .contact-form form { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
 .contact-form input, .contact-form textarea { padding: 10px; border-radius: 5px; border: none; }
 .contact-form button { padding: 10px; background: #52b788; border: none; color: white; font-weight: bold; cursor: pointer; border-radius: 5px}
+.contact-form button:hover { background: #2d6a4f; }
+.social-media { display: flex; gap: 15px; margin-top: 20px; }
+.social-media a { color: white; font-size: 20px; text-decoration: none; transition: color 0.3s; }
+.social-media a:hover { color: #52b788; }
+
+
 
 /* Professional Footer Styling */
 .pro-footer {
